@@ -5,29 +5,31 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<script language="JavaScript">
-			var asyncRequest;
-			// variable to hold XMLHttpRequest object
-			var ceiling;
-			function retriveCeilingJS(url) {
-				try {
-					asyncRequest = new XMLHttpRequest();
-					// create request object
-					// register event handler
-					asyncRequest.onreadystatechange = processResponse;
-					asyncRequest.open('GET', url, true);
-					// prepare the request asyncRequest.send( null ); // send the request with no body message
-				}// end try
-				catch ( exception ) {
-					alert('Request Failed');
-				} // end catch
-			}
-
-			function processResponse() {
-				alert(asyncRequest.readyState);
-				if(asyncRequest.readyState == 4 && asyncRequest.status == 200) {
-					ceiling = document.getElementById("numberCeiling");
-					alert(ceiling);
+			function setting(){
+				var content = document.getElementById("main");
+				while(content.lastChild)
+				{
+					content.removeChild(content.lastChild);
 				}
+				
+				var newRow = document.createElement("tr");
+				document.getElementById("main").innerHTML = document.getElementById("numberCeiling").value;
+				content.appendChild(newRow);
+				newRow = document.createElement("tr");
+				var mainFrame = document.createElement("input");
+				mainFrame.id = "pickerButton";
+				mainFrame.type = "Button";
+				mainFrame.value = "选一个数字";
+				mainFrame.onclick =	function(){
+					 numberPicker();
+				};
+				content.appendChild(mainFrame);	
+				content.appendChild(newRow);
+			}
+		</script>
+		<script language="JavaScript">
+			function numberPicker(){
+				alert("1");
 			}
 		</script>
 		<title>index</title>
@@ -53,9 +55,13 @@
 						<td id="rightTd"></td>
 					</tr>
 				</table>
-				<a href="javascript:retriveCeilingJS('main.html')">aa</a>
-				<input type="submit" value="开始" onclick="javascript:retriveCeilingJS('main.html')"/>
+				<input type="Button" value="开始" onclick="setting()"/>
 			</fieldset>
 		</form>
+		<div>
+			<table id="main">
+				
+			</table>
+		</div>
 	</body>
 </html>

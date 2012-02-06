@@ -2,11 +2,20 @@ html, body {
 	margin: 0px;	
 	font-size: 12px; 
 	font-family: Verdana, Arial, Helvetica, sans-serif,"宋体";
+	margin: auto;
 }
 
 fieldset{
 	width:728px; 
 	margin: auto; 
 	background-color:#FBE5E9; 
-	margin:auto;
+}
+
+#main{
+	margin: auto;
+	font-size: 40px; 
+}
+
+#pickerButton{
+	
 }
