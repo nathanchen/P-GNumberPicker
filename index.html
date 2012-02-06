@@ -5,10 +5,29 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<script language="JavaScript">
-			function q() {
-				var arrTextValue=document.getElementById("titleSetting");
-				window.open("main.html?titleSetting="+arrTextValue.value);
-				window.close("this");
+			var asyncRequest;
+			// variable to hold XMLHttpRequest object
+			var ceiling;
+			function retriveCeilingJS(url) {
+				try {
+					asyncRequest = new XMLHttpRequest();
+					// create request object
+					// register event handler
+					asyncRequest.onreadystatechange = processResponse;
+					asyncRequest.open('GET', url, true);
+					// prepare the request asyncRequest.send( null ); // send the request with no body message
+				}// end try
+				catch ( exception ) {
+					alert('Request Failed');
+				} // end catch
+			}
+
+			function processResponse() {
+				alert(asyncRequest.readyState);
+				if(asyncRequest.readyState == 4 && asyncRequest.status == 200) {
+					ceiling = document.getElementById("numberCeiling");
+					alert(ceiling);
+				}
 			}
 		</script>
 		<title>index</title>
@@ -16,30 +35,27 @@
 		<!-- Date: 2012-02-06 -->
 	</head>
 	<body>
-		<form method="post" name="myForm" action="" onsubmit="q()">
+		<form method="post" name="myForm" action="">
 			<fieldset>
 				<table>
 					<tr>
-						<td id="leftTd">
-							将标题设置为: <input id="titleSetting" type="text"/>
+						<td id="leftTd"> 将标题设置为:
+						<input id="titleSetting" type="text"/>
 						</td>
-						<td id="rightTd">
-							将内容设置为: <input id="contentSetting" type="text"/>
+						<td id="rightTd"> 将内容设置为:
+						<input id="contentSetting" type="text"/>
 						</td>
 					</tr>
 					<tr>
-						<td id="leftTd">
-							将数字上线设置为: <input id="numberCeiling"type="text" />
+						<td id="leftTd"> 将数字上线设置为:
+						<input id="numberCeiling"type="text" />
 						</td>
-						<td id="rightTd">
-							
-						</td>
+						<td id="rightTd"></td>
 					</tr>
 				</table>
-				<input type="submit" value="开始"/>	
+				<a href="javascript:retriveCeilingJS('main.html')">aa</a>
+				<input type="submit" value="开始" onclick="javascript:retriveCeilingJS('main.html')"/>
 			</fieldset>
-			
-			
 		</form>
 	</body>
 </html>
