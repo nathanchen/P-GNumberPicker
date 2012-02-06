@@ -4,34 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-		<script language="JavaScript">
-			function setting(){
-				var content = document.getElementById("main");
-				while(content.lastChild)
-				{
-					content.removeChild(content.lastChild);
-				}
-				
-				var newRow = document.createElement("tr");
-				document.getElementById("main").innerHTML = document.getElementById("numberCeiling").value;
-				content.appendChild(newRow);
-				newRow = document.createElement("tr");
-				var mainFrame = document.createElement("input");
-				mainFrame.id = "pickerButton";
-				mainFrame.type = "Button";
-				mainFrame.value = "选一个数字";
-				mainFrame.onclick =	function(){
-					 numberPicker();
-				};
-				content.appendChild(mainFrame);	
-				content.appendChild(newRow);
-			}
-		</script>
-		<script language="JavaScript">
-			function numberPicker(){
-				alert("1");
-			}
-		</script>
+		<script type="text/javascript" src="numberPicker.js"></script>
 		<title>index</title>
 		<meta name="author" content="Nathan CHEN" />
 		<!-- Date: 2012-02-06 -->
