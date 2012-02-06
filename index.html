@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		<script language="JavaScript">
+			function q() {
+				var arrTextValue=document.getElementById("titleSetting");
+				window.open("main.html?titleSetting="+arrTextValue.value);
+				window.close("this");
+			}
+		</script>
+		<title>index</title>
+		<meta name="author" content="Nathan CHEN" />
+		<!-- Date: 2012-02-06 -->
+	</head>
+	<body>
+		<form method="post" name="myForm" action="" onsubmit="q()">
+			<fieldset>
+				<table>
+					<tr>
+						<td id="leftTd">
+							将标题设置为: <input id="titleSetting" type="text"/>
+						</td>
+						<td id="rightTd">
+							将内容设置为: <input id="contentSetting" type="text"/>
+						</td>
+					</tr>
+					<tr>
+						<td id="leftTd">
+							将数字上线设置为: <input id="numberCeiling"type="text" />
+						</td>
+						<td id="rightTd">
+							
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="开始"/>	
+			</fieldset>
+			
+			
+		</form>
+	</body>
+</html>
